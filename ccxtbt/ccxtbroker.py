@@ -252,7 +252,9 @@ class CCXTBroker(with_metaclass(MetaCCXTBroker, BrokerBase)):
             except:
                 # save some API calls after failure
                 self.use_order_params = False
-                return None
+                ret_ord = self.store.create_order(symbol=data.p.dataname, order_type=order_type, side=side,
+                                                  amount=amount, price=price, params={})
+                return ret_ord
 
         _order = self.store.fetch_order(ret_ord['id'], data.p.dataname)
 
