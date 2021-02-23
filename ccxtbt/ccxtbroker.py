@@ -254,7 +254,6 @@ class CCXTBroker(with_metaclass(MetaCCXTBroker, BrokerBase)):
                 self.use_order_params = False
                 ret_ord = self.store.create_order(symbol=data.p.dataname, order_type=order_type, side=side,
                                                   amount=amount, price=price, params={})
-                return ret_ord
 
         _order = self.store.fetch_order(ret_ord['id'], data.p.dataname)
 
